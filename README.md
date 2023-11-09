@@ -35,7 +35,7 @@ The `WEREWOLF WEED Employee Database` is a command-line application that manages
 
 
 ### ![user-story](./swear-wolf/branding/9.png)
-![user-story](./bear-necessities/user-story.png)
+![user-story](./swear-wolf/branding/user-story.png)
 
 ### ![acceptance-criteria](./swear-wolf/branding/10.png)
 ![acceptance-criteria](./bear-necessities/acceptance-criteria.png)
@@ -85,13 +85,13 @@ git clone https://github.com/christiecamp/werewolf-weed.git
 
 
 ### ![screenshot](./swear-wolf/branding/12.png)
-![screenshot](./bear-necessities//ss.png)
+<!-- ![screenshot](./bear-necessities//ss.png) -->
 
 ### ![demo](./swear-wolf/branding/13.png)
-![demo](./bear-necessities/bear-taker.gif)
+<!-- ![demo](./bear-necessities/bear-taker.gif) -->
 
 ### ![testing](./swear-wolf/branding/8.png)
-![testing](./bear-necessities/insomniass.png)
+<!-- ![testing](./bear-necessities/insomniass.png) -->
 
 ### ![sources](./swear-wolf/branding/4.png)
 
@@ -119,8 +119,10 @@ Here's a list of technologies used:
 
 [![Github Badge](https://img.shields.io/badge/christiecamp-green.svg?&logo=Github&logoColor=white)](https://github.com/christiecamp/bear-taker) 
 
-![Gmail Badge](https://img.shields.io/badge/email-lightgrey.svg?&logo=Gmail&logoColor=white)<a href = "mailto:christiecamphoto@gmail.com?subject = Feedback&body = Message"> <3</a>
+![Gmail Badge](https://img.shields.io/badge/email-lightgrey.svg?&logo=Gmail&logoColor=white)
 
-<p align="center">
+<!-- <a href = "mailto:christiecamphoto@gmail.com?subject = Feedback&body = Message"> <3</a> -->
+
+<!-- <p align="center">
 <a href="https://www.christiecamp.com"><img height= 200px src ="./swear-wolf/branding/"></a>
-</p>
+</p> -->
