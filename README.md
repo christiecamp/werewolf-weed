@@ -30,18 +30,16 @@
 The `WEREWOLF WEED Employee Database` is a command-line application that manages WEREWOLF WEED'S employee database by using [Node.js](https://nodejs.org/en), [Inquirer](https://www.npmjs.com/package/inquirer), and [MySQL](https://www.mysql.com).
 
 * [MySQL2 package](https://www.npmjs.com/package/mysql2) to connect to `WEREWOLF WEED'S` MySQL *database* and perform *queries*.
-
 * [Inquirer package](https://www.npmjs.com/package/inquirer/v/8.2.4) to interact with the user via the command-line.
-
 
 ### ![user-story](./swear-wolf/branding/9.png)
 ![user-story](./swear-wolf/branding/user-story.png)
 
 ### ![acceptance-criteria](./swear-wolf/branding/10.png)
-![acceptance-criteria](./bear-necessities/acceptance-criteria.png)
+![acceptance-criteria](./swear-wolf/branding/ac.png)
 
 ### ![hairy-list](./swear-wolf/branding/11.png)
-![hairy-list](./bear-necessities/beary-list.png)
+![hairy-list](./swear-wolf/branding/hairy-list.png)
 
 
 ### ![installation](./swear-wolf/branding/2.png)
@@ -116,13 +114,11 @@ Here's a list of technologies used:
 [Video Demo]()
 
 ### ![connect](./swear-wolf/branding/7.png)
-
 [![Github Badge](https://img.shields.io/badge/christiecamp-green.svg?&logo=Github&logoColor=white)](https://github.com/christiecamp/bear-taker) 
-
-![Gmail Badge](https://img.shields.io/badge/email-lightgrey.svg?&logo=Gmail&logoColor=white)
+![Gmail Badge](https://img.shields.io/badge/email-green.svg?&logo=Gmail&logoColor=white)
 
 <!-- <a href = "mailto:christiecamphoto@gmail.com?subject = Feedback&body = Message"> <3</a> -->
 
-<!-- <p align="center">
-<a href="https://www.christiecamp.com"><img height= 200px src ="./swear-wolf/branding/"></a>
-</p> -->
+<p align="center">
+<a href="https://www.christiecamp.com"><img height= 250px src ="./swear-wolf/branding/footer.png"></a>
+</p>
