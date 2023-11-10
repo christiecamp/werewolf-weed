@@ -4,11 +4,12 @@
 
 [![License: mit](https://img.shields.io/badge/license-mit-green?)](https://opensource.org/licenses/MIT)
 [![Node.js Badge](https://img.shields.io/badge/node-lightgrey?logo=nodedotjs&logoColor=fff&style=flat)](https://nodejs.org/en)
-[![MySql Badge](https://img.shields.io/badge/mysql-grey.svg?&logo=Mysql&logoColor=white)](https://www.mysql.com)
-[![Dotenv Badge](https://img.shields.io/badge/dotenv-grey.svg?&logo=Dotenv&logoColor=white)](https://canva.com)
-[![Sequelize Badge](https://img.shields.io/badge/sequelize-grey.svg?&logo=Sequelize&logoColor=white)](https://canva.com)
-[![Canva Badge](https://img.shields.io/badge/canva-forest.svg?&logo=Canva&logoColor=white)](https://canva.com)
 [![Inquirer Badge](https://badge.fury.io/js/inquirer.svg)](http://badge.fury.io/js/inquirer)
+[![MySql Badge](https://img.shields.io/badge/mysql-lightgrey.svg?&logo=Mysql&logoColor=white)](https://www.mysql.com)
+[![Sequelize Badge](https://img.shields.io/badge/sequelize-lightgrey.svg?&logo=Sequelize&logoColor=white)](https://canva.com)
+[![Dotenv Badge](https://img.shields.io/badge/dotenv-grey.svg?&logo=Dotenv&logoColor=white)](https://canva.com)
+[![Nodemon Badge](https://img.shields.io/badge/nodemon-gray.svg?&logo=Nodemon&logoColor=white)](https://www.npmjs.com/package/nodemon)
+[![Canva Badge](https://img.shields.io/badge/canva-forest.svg?&logo=Canva&logoColor=white)](https://canva.com)
 
 
 **UNDER CONSTRUCTION - COME BACK SOON!**
@@ -60,7 +61,7 @@ git clone https://github.com/christiecamp/werewolf-weed.git
 *Navigate to the command line and input:*
 
 ```javascript
-npm i :: inquirer@8.2.4, --save mysql2, dotenv --save, --save sequelize, -g nodemon --save-dev
+npm i :: inquirer@8.2.4, --save mysql2, dotenv --save, --save sequelize, -g nodemon --save-dev, chalk,
 ```
 ```javascript
 
@@ -109,6 +110,10 @@ Here's a list of technologies used:
 4. [Dotenv](https://www.npmjs.com/package/dotenv) - a zero-dependency module that loads environment variables from a .env file into `process.env`.
 
 5. [Sequelize](https://sequelize.org/) - a Node.js based `Object Relational Mapper` that makes it easy to work with **MySQL databases**. An *Object Relational Mapper* performs functions like handling database records by representing the data as objects.
+
+5. [Nodemon](https://www.npmjs.com/package/nodemon) - a Node.js tool that helps develop applications by automatically restarting the node application when file changes in the directory are detected.
+
+5. [Chalk](https://www.npmjs.com/package/chalk) - a Node.js tool that helps develop applications by automatically restarting the node application when file changes in the directory are detected.
 
 ### ![license](./swear-wolf/branding/5.png)
 
