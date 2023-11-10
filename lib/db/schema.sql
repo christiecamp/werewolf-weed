@@ -19,7 +19,8 @@ CREATE TABLE department (
 CREATE TABLE role (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(30) NOT NULL,
-    salary DECIMAL() NULL,
+    -- decimal number with maximal total precision of 10 digits - two after decimal --
+    salary DECIMAL(10,2) NULL,
     department_id INT NOT NULL,
     FOREIGN KEY (department_id)
         REFERENCES department(id)
@@ -27,7 +28,7 @@ CREATE TABLE role (
 );
 
 -- employee table --
-CREATE TABLE employee (
+CREATE TABLE weremployee (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
@@ -37,7 +38,7 @@ CREATE TABLE employee (
         REFERENCES role (id)
         ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (manager_id)
-        REFERENCES employee(id)
+        REFERENCES weremployee(id)
         ON DELETE SET NULL
         ON UPDATE CASCADE
 );

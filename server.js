@@ -4,3 +4,6 @@ const input = require('./lib/input.js');
 //import connection object
 const sequelize = require('./lib/config/connection');
 require ('dotenv').config();
+
+
+

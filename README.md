@@ -60,7 +60,7 @@ git clone https://github.com/christiecamp/werewolf-weed.git
 *Navigate to the command line and input:*
 
 ```javascript
-npm i :: inquirer@8.2.4, --save mysql2, dotenv --save, --save sequelize,
+npm i :: inquirer@8.2.4, --save mysql2, dotenv --save, --save sequelize, -g nodemon --save-dev
 ```
 ```javascript
 
