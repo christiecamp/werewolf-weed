@@ -6,7 +6,9 @@
 [![Node.js Badge](https://img.shields.io/badge/node-lightgrey?logo=nodedotjs&logoColor=fff&style=flat)](https://nodejs.org/en)
 [![MySql Badge](https://img.shields.io/badge/mysql-grey.svg?&logo=Mysql&logoColor=white)](https://www.mysql.com)
 [![Dotenv Badge](https://img.shields.io/badge/dotenv-grey.svg?&logo=Dotenv&logoColor=white)](https://canva.com)
+[![Sequelize Badge](https://img.shields.io/badge/sequelize-grey.svg?&logo=Sequelize&logoColor=white)](https://canva.com)
 [![Canva Badge](https://img.shields.io/badge/canva-forest.svg?&logo=Canva&logoColor=white)](https://canva.com)
+[![Inquirer Badge](https://badge.fury.io/js/inquirer.svg)](http://badge.fury.io/js/inquirer)
 
 
 **UNDER CONSTRUCTION - COME BACK SOON!**
@@ -53,12 +55,12 @@ The application is invoked using the following commands:
 git clone https://github.com/christiecamp/werewolf-weed.git
 ```
 
-***Change password in file***
+**Update *connection.js* with your information**
 
 *Navigate to the command line and input:*
 
 ```javascript
-npm i :: inquirer@8.2.4, --save mysql2, dotenv --save,
+npm i :: inquirer@8.2.4, --save mysql2, dotenv --save, --save sequelize,
 ```
 ```javascript
 
@@ -102,9 +104,11 @@ Here's a list of technologies used:
 
 2. [Inquirer]((https://www.npmjs.com/package/inquirer/v/8.2.4)) - the NPM package that provides an easy way to capture user input in your Node. js command line interface applications.
 
-3. [MySQL2 package](https://www.npmjs.com/package/mysql2) - MySQL is a relational database management system based on SQL – Structured Query Language.
+3. [MySQL2](https://www.npmjs.com/package/mysql2) - MySQL is a relational database management system based on SQL – Structured Query Language.
 
-3. [Dotenv package](https://www.npmjs.com/package/dotenv) - a zero-dependency module that loads environment variables from a .env file into `process.env`.
+4. [Dotenv](https://www.npmjs.com/package/dotenv) - a zero-dependency module that loads environment variables from a .env file into `process.env`.
+
+5. [Sequelize](https://sequelize.org/) - a Node.js based `Object Relational Mapper` that makes it easy to work with **MySQL databases**. An *Object Relational Mapper* performs functions like handling database records by representing the data as objects.
 
 ### ![license](./swear-wolf/branding/5.png)
 
@@ -119,7 +123,9 @@ Here's a list of technologies used:
 [Video Demo]()
 
 ### ![connect](./swear-wolf/branding/7.png)
-[![Github Badge](https://img.shields.io/badge/christiecamp-green.svg?&logo=Github&logoColor=white)](https://github.com/christiecamp/bear-taker) 
+
+[![Github Badge](https://img.shields.io/badge/christiecamp-green.svg?&logo=Github&logoColor=white)](https://github.com/christiecamp/bear-taker)
+
 ![Gmail Badge](https://img.shields.io/badge/email-green.svg?&logo=Gmail&logoColor=white)
 
 <!-- <a href = "mailto:christiecamphoto@gmail.com?subject = Feedback&body = Message"> <3</a> -->
