@@ -5,8 +5,9 @@ CREATE DATABASE werewolf_DB;
 
 -- use database --
 USE werewolf_DB;
-
 -- create tables within database --
+
+-- department table --
 CREATE TABLE department (
      -- Creates a numeric column called "id" which will automatically increment its default value as we create new rows --
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -14,22 +15,29 @@ CREATE TABLE department (
     name VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE role ()
+-- role table --
+CREATE TABLE role (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(30) NOT NULL,
     salary DECIMAL() NULL,
     department_id INT NOT NULL,
-    FOREIGN KEY ()
-    -- id --
-    -- title --
-    -- salary --
-    -- department id --
-    -- key? --
-CREATE TABLE employee ()
--- employees --
-    -- id --
-    -- first name --
-    -- last name --
-    -- role id --
-    -- manager id --
-    -- key? --
+    FOREIGN KEY (department_id)
+        REFERENCES department(id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- employee table --
+CREATE TABLE employee (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    role_id INT NOT NULL,
+    manager_id INT NULL,
+    FOREIGN KEY (role_id)
+        REFERENCES role (id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (manager_id)
+        REFERENCES employee(id)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
