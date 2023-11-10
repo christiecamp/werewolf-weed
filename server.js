@@ -40,3 +40,25 @@ function toke() {
             console.log(err);
         });
 };
+
+
+
+//seperate these into a new file?
+
+//view employees
+//add employee
+//update employee role
+//view employee by manager
+//update employee manager
+//delete employee
+
+//view roles
+//add role
+//delete role
+
+//view departments
+//add department
+//delete department
+
+//view total utilized budget of a department
+
