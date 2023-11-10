@@ -28,7 +28,7 @@ CREATE TABLE role (
 );
 
 -- employee table --
-CREATE TABLE weremployee (
+CREATE TABLE employee (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE weremployee (
         REFERENCES role (id)
         ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (manager_id)
-        REFERENCES weremployee(id)
+        REFERENCES employee(id)
         ON DELETE SET NULL
         ON UPDATE CASCADE
 );

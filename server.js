@@ -3,9 +3,8 @@ const mysql = require('mysql2');
 const input = require('./lib/input.js');
 //import connection object
 const howl = require('./lib/config/connection');
-require ('dotenv').config();
 
-//contect to db
+//contect to database
 howl.connect (err => {
     if (err) throw err;
     //message displayed at connection
@@ -17,13 +16,12 @@ howl.connect (err => {
     *****************
     `);
     //run app
-    firstToke ()
+    toke();
 });
 
-//initialize app
-function firstToke () {
-
-    //message displayed at connection
+//initialize server
+function toke() {
+    //one of the console.logs will change to be a large banner - looking to use figlet and chalk (chalk - can change text styling in console.log)
     console.log (`
     *****************
         Welcome to 
@@ -32,11 +30,11 @@ function firstToke () {
     *****************
     `);
 
-    //user prompts
+    //user prompts - not sure how i want to seperate, but would like to keep server.js file clean and tidy, with information imported
     inquirer
-        .prompt(input) //user input? keeping as placeholder
+        .prompt(input) //user input
         .then((output) => {
-            //response - switchcase? function
+            //response - switchcase? function - this needs to be the output, but where should I store? create a seperate file? or add in input file?
         })
         .catch(err => {
             console.log(err);

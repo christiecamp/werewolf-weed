@@ -3,13 +3,17 @@
 </p>
 
 [![License: mit](https://img.shields.io/badge/license-mit-green?)](https://opensource.org/licenses/MIT)
-[![Node.js Badge](https://img.shields.io/badge/node-lightgrey?logo=nodedotjs&logoColor=fff&style=flat)](https://nodejs.org/en)
+[![Node.js Badge](https://img.shields.io/badge/node-grey?logo=nodedotjs&logoColor=fff&style=flat)](https://nodejs.org/en)
 [![Inquirer Badge](https://badge.fury.io/js/inquirer.svg)](http://badge.fury.io/js/inquirer)
-[![MySql Badge](https://img.shields.io/badge/mysql-lightgrey.svg?&logo=Mysql&logoColor=white)](https://www.mysql.com)
+[![MySql Badge](https://img.shields.io/badge/mysql-grey.svg?&logo=Mysql&logoColor=white)](https://www.mysql.com)
+
 [![Sequelize Badge](https://img.shields.io/badge/sequelize-lightgrey.svg?&logo=Sequelize&logoColor=white)](https://canva.com)
-[![Dotenv Badge](https://img.shields.io/badge/dotenv-grey.svg?&logo=Dotenv&logoColor=white)](https://canva.com)
-[![Nodemon Badge](https://img.shields.io/badge/nodemon-gray.svg?&logo=Nodemon&logoColor=white)](https://www.npmjs.com/package/nodemon)
-[![Canva Badge](https://img.shields.io/badge/canva-forest.svg?&logo=Canva&logoColor=white)](https://canva.com)
+[![Dotenv Badge](https://img.shields.io/badge/dotenv-lightgrey.svg?&logo=Dotenv&logoColor=white)](https://canva.com)
+[![Nodemon Badge](https://img.shields.io/badge/nodemon-lightgrey.svg?&logo=Nodemon&logoColor=white)](https://www.npmjs.com/package/nodemon)
+
+[![Chalk Badge](https://img.shields.io/badge/chalk-yellowgreen.svg?&logo=Chalk&logoColor=white)](https://www.npmjs.com/package/chalk)
+[![Figlet Badge](https://img.shields.io/badge/figlet-yellowgreen.svg?&logo=Figlet&logoColor=white)](https://www.npmjs.com/package/chalk)
+[![Canva Badge](https://img.shields.io/badge/canva-green.svg?&logo=Canva&logoColor=white)](https://canva.com)
 
 
 **UNDER CONSTRUCTION - COME BACK SOON!**
@@ -103,7 +107,7 @@ Here's a list of technologies used:
 
 1. [Node.js](https://nodejs.org/en) - is an open-source, cross-platform JavaScript runtime environment.
 
-2. [Inquirer]((https://www.npmjs.com/package/inquirer/v/8.2.4)) - the NPM package that provides an easy way to capture user input in your Node. js command line interface applications.
+2. [Inquirer](https://www.npmjs.com/package/inquirer/v/8.2.4) - the NPM package that provides an easy way to capture user input in your Node. js command line interface applications.
 
 3. [MySQL2](https://www.npmjs.com/package/mysql2) - MySQL is a relational database management system based on SQL – Structured Query Language.
 
