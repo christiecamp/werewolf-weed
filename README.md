@@ -5,6 +5,7 @@
 [![License: mit](https://img.shields.io/badge/license-mit-green?)](https://opensource.org/licenses/MIT)
 [![Node.js Badge](https://img.shields.io/badge/node-lightgrey?logo=nodedotjs&logoColor=fff&style=flat)](https://nodejs.org/en)
 [![MySql Badge](https://img.shields.io/badge/mysql-grey.svg?&logo=Mysql&logoColor=white)](https://www.mysql.com)
+[![Dotenv Badge](https://img.shields.io/badge/dotenv-grey.svg?&logo=Dotenv&logoColor=white)](https://canva.com)
 [![Canva Badge](https://img.shields.io/badge/canva-forest.svg?&logo=Canva&logoColor=white)](https://canva.com)
 
 
@@ -26,7 +27,7 @@
   - [LINKS](#links)
   - [CONNECT](#connect)
 
-  ### ![overview](./swear-wolf/branding/1.png)
+### ![overview](./swear-wolf/branding/1.png)
 The `WEREWOLF WEED Employee Database` is a command-line application that manages WEREWOLF WEED'S employee database by using [Node.js](https://nodejs.org/en), [Inquirer](https://www.npmjs.com/package/inquirer), and [MySQL](https://www.mysql.com).
 
 * [MySQL2 package](https://www.npmjs.com/package/mysql2) to connect to `WEREWOLF WEED'S` MySQL *database* and perform *queries*.
@@ -52,10 +53,12 @@ The application is invoked using the following commands:
 git clone https://github.com/christiecamp/werewolf-weed.git
 ```
 
+***Change password in file***
+
 *Navigate to the command line and input:*
 
 ```javascript
-
+npm i :: inquirer@8.2.4, --save mysql2, dotenv --save,
 ```
 ```javascript
 
@@ -99,11 +102,13 @@ Here's a list of technologies used:
 
 2. [Inquirer]((https://www.npmjs.com/package/inquirer/v/8.2.4)) - the NPM package that provides an easy way to capture user input in your Node. js command line interface applications.
 
-3. [MySQL2 package](https://www.npmjs.com/package/mysql2) - 
+3. [MySQL2 package](https://www.npmjs.com/package/mysql2) - MySQL is a relational database management system based on SQL – Structured Query Language.
+
+3. [Dotenv package](https://www.npmjs.com/package/dotenv) - a zero-dependency module that loads environment variables from a .env file into `process.env`.
 
 ### ![license](./swear-wolf/branding/5.png)
 
- [MIT License](./LICENSE)
+[MIT License](./LICENSE)
 
 ### ![links](./swear-wolf/branding/6.png)
 
