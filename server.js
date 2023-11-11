@@ -9,7 +9,7 @@ const input = require('./lib/input.js');
 const howl = mysql.createConnection({
     host: 'localhost',
     port: 3013,
-    database: werewolf_db,
+    database: 'werewolf_DB',
     user: 'root',
     password: '', 
 });
