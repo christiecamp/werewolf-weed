@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const input = require('./lib/input.js');
+const output = require('./lib/db/output.js');
 //import connection object
 const howl = require('./lib/config/connection');
 
