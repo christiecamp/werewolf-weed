@@ -115,10 +115,10 @@ function viewAll(output) {
 
 
 //add department
-function addDept() {
+function addDept(output) {
     let query =
-        ``
-    howl.query(query, (err,res) => {
+        `INSERT INTO department (name) VALUES (?)`;
+    howl.query(query, [output.addDept], (err,res) => {
         if (err) throw err;
         console.log('department added!');
     toke();
