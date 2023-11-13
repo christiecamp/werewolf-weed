@@ -1,21 +1,21 @@
 //import connection object
 // const howl = require('./lib/config/connection');
-const inquirer = require('inquirer');
 const mysql = require('mysql2');
+const inquirer = require('inquirer');
 const input = require('./lib/input.js');
 // const output = require('./working-output.js');
 
 //mysql connection
 const howl = mysql.createConnection({
     host: 'localhost',
-    port: 3013,
-    database: 'werewolf_DB',
+    port: 3007,
     user: 'root',
     password: '', 
+    database: 'werewolf_DB',
 });
 
 //contect to database
-howl.connect (err => {
+howl.connect(err => {
     if (err) throw err;
     //message displayed at connection
     console.log (`
@@ -114,120 +114,120 @@ function viewAll(output) {
 };
 
 
-//add department
-function addDept(output) {
-    let query =
-        `INSERT INTO department (name) VALUES (?)`;
-    howl.query(query, [output.addDept], (err,res) => {
-        if (err) throw err;
-        console.log('department added!');
-    toke();
-    });
-};
+// //add department
+// function addDept(output) {
+//     let query =
+//         `INSERT INTO department (name) VALUES (?)`;
+//     howl.query(query, [output.addDept], (err,res) => {
+//         if (err) throw err;
+//         console.log('department added!');
+//     toke();
+//     });
+// };
 
 
-//add role
-function addRole() {
-    let query =
-        ``
-    howl.query(query, (err,res) => {
-        if (err) throw err;
-        console.log('role added!');
-    toke();
-    });
-};
+// //add role
+// function addRole() {
+//     let query =
+//         ``
+//     howl.query(query, (err,res) => {
+//         if (err) throw err;
+//         console.log('role added!');
+//     toke();
+//     });
+// };
 
 
-//add employee
-function addEmp() {
-    let query =
-        ``
-    howl.query(query, (err, res) => {
-        if (err) throw err;
-        console.log('employee added!');
-    toke();
-    });
-};
+// //add employee
+// function addEmp() {
+//     let query =
+//         ``
+//     howl.query(query, (err, res) => {
+//         if (err) throw err;
+//         console.log('employee added!');
+//     toke();
+//     });
+// };
 
 
-//update employee role
-function updateRole() {
-    let query =
-        ``
-    howl.query(query, (err, res) => {
-        if (err) throw err;
-        console.log('role updated!');
-    toke();
-    });
-};
+// //update employee role
+// function updateRole() {
+//     let query =
+//         ``
+//     howl.query(query, (err, res) => {
+//         if (err) throw err;
+//         console.log('role updated!');
+//     toke();
+//     });
+// };
 
 
-//view employee by manager
-function viewMng() {
-    let query =
-        ``
-    howl.query(query, (err, res) => {
-        if (err) throw err;
-        console.log('viewing employee by manager');
-    toke();
-    });
-};
+// //view employee by manager
+// function viewMng() {
+//     let query =
+//         ``
+//     howl.query(query, (err, res) => {
+//         if (err) throw err;
+//         console.log('viewing employee by manager');
+//     toke();
+//     });
+// };
 
 
-//update employee manager
-function updateMng() {
-    let query =
-        ``
-    howl.query(query, (err, res) => {
-        if (err) throw err;
-        console.log('employee manager updated!');
-    toke();
-    });
-};
+// //update employee manager
+// function updateMng() {
+//     let query =
+//         ``
+//     howl.query(query, (err, res) => {
+//         if (err) throw err;
+//         console.log('employee manager updated!');
+//     toke();
+//     });
+// };
 
 
-//delete department
-function deleteDept() {
-    let query =
-        ``
-    howl.query(query, (err, res) => {
-        if (err) throw err;
-        console.log('department deleted!');
-    toke();
-    });
-};
+// //delete department
+// function deleteDept() {
+//     let query =
+//         ``
+//     howl.query(query, (err, res) => {
+//         if (err) throw err;
+//         console.log('department deleted!');
+//     toke();
+//     });
+// };
 
 
-//delete role
-function deleteRole() {
-    let query =
-        ``
-    howl.query(query, (err, res) => {
-        if (err) throw err;
-        console.log('role deleted!');
-    toke();
-    });
-};
+// //delete role
+// function deleteRole() {
+//     let query =
+//         ``
+//     howl.query(query, (err, res) => {
+//         if (err) throw err;
+//         console.log('role deleted!');
+//     toke();
+//     });
+// };
 
 
-//delete employee
-function deleteEmp() {
-    let query =
-        ``
-    howl.query(query, (err,res) => {
-        if (err) throw err;
-        console.log('employee deleted!');
-    toke();
-    });
-};
+// //delete employee
+// function deleteEmp() {
+//     let query =
+//         ``
+//     howl.query(query, (err,res) => {
+//         if (err) throw err;
+//         console.log('employee deleted!');
+//     toke();
+//     });
+// };
 
 
-//view total utilized budget of a department
-function viewBdgt() {
-    let query = 
-        ``
-    howl.query(query, (err, res) => {
-        if (err) throw err;
-        console.log('budget by department');
-    });
-};
+// //view total utilized budget of a department
+// function viewBdgt() {
+//     let query = 
+//         ``
+//     howl.query(query, (err, res) => {
+//         if (err) throw err;
+//         console.log('budget by department');
+//     });
+// };

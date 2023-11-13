@@ -38,7 +38,7 @@ INSERT INTO employee
     (first_name, last_name, role_id, manager_id)
 VALUES
 -- executive department
-    ('Christie', 'Smitty', 1, NULL) -- 1
+    ('Christie', 'Smitty', 1, NULL), -- 1
     ('Andi', 'Smitty', 2, 1), -- 2
     ('Jane', 'Doobie', 3, 1), -- 3
     ('Stacy', 'Flower', 4, 1), -- 4
@@ -75,9 +75,9 @@ VALUES
 
 -- operations
     ('Greta', 'Blunt', 8, 3), -- 14
-    ('Benjamin', 'Spliff', ), -- 15
+    ('Benjamin', 'Spliff', 14, 14), -- 15
     ('Noah', 'Diesel', 13, 14), -- 16
-    ('Frances', 'Hash', , 16), -- 17
+    ('Frances', 'Hash', 17, 16), -- 17
     ('Chris', 'Doobie Jr.', 18, 15); -- 18
 -- Greta Blunt, VP Sales & Cultivation
 -- Benjamin Spliff, Sales Manager
