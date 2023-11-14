@@ -49,10 +49,10 @@ function toke() {
                     viewAll('department');
                     break;
                 case 'view roles':
-                    viewAll('role');
+                    viewRole();
                     break;
                 case 'view employees':
-                    viewAll('employee');
+                    viewEmp();
                     break;
                 case 'add department':
                     addDept();
@@ -95,27 +95,35 @@ function toke() {
 
 //will move to new file once there is functionality.
 
-//view all - departments, roles, employees
-const viewAll = (output) => {
-        //departments
-    if (output.options === 'view departments') {
-       howl.query(`SELECT * FROM department`, (err,res) => {
+//view all 
+function viewAll(output) {
+    //departments
+    if (output === 'department') {
+        howl.query(`SELECT * FROM department`, (err, res) => {
             if (err) throw err;
             console.log('viewing all departments:');
             console.table(res);
-       });
-    };
-//         //roles
+        })
+    }
+    // //roles
     // } else if (output === 'role') {
-//         howl.query = `SELECT * FROM role`;
-//         console.log('viewing all roles');
-//         //employees
-//     } else if (output === 'employee') {
-//         howl.query = `SELECT * FROM employee`;
-//         console.log('viewing all employees');
-//     };
-    toke();
-};
+    //     howl.query(`SELECT * FROM role`, (err, res) => {
+    //         if (err) throw err;
+    //         console.log('viewing all roles');
+    //         console.table(res);
+    //     })
+    // //employees
+    // } else if (output === 'employee') {
+    //     howl.query(`SELECT * FROM employee`,(err, res) => {
+    //         if (err) throw err;
+    //         console.log('viewing all employees');
+    //         console.table(res);
+    //     })
+toke();
+};  
+
+
+
 
 
 // //add department
@@ -235,3 +243,10 @@ const viewAll = (output) => {
 //         console.log('budget by department');
 //     });
 // };
+
+//end
+// function end() {
+//     console.log(`
+
+
+// `)};
