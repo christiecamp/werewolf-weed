@@ -1,10 +1,10 @@
 -- drops database if it exists --
-DROP DATABASE IF EXISTS werewolf_DB;
+DROP DATABASE IF EXISTS werewolf_db;
 -- creates database --
-CREATE DATABASE werewolf_DB;
+CREATE DATABASE werewolf_db;
 
 -- use database --
-USE werewolf_DB;
+USE werewolf_db;
 -- create tables within database --
 
 -- department table --

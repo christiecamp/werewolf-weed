@@ -7,16 +7,15 @@ const input = require('./lib/input.js');
 
 //mysql connection
 const howl = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.1', //local host
     port: 3007,
     user: 'root',
     password: '', 
-    database: 'werewolf_DB',
+    database: 'werewolf_db'
 });
 
 //contect to database
-howl.connect(err => {
-    if (err) throw err;
+howl.connect( () => {
     //message displayed at connection
     console.log (`
     ╔═══╗     ╔╗              ╔═╗╔═╗
@@ -45,7 +44,7 @@ function toke() {
     inquirer
         .prompt(input) //user input (change to inhale)
         .then((output) => { //output
-            switch (output.action) {
+            switch (output.options) {
                 case 'view departments':
                     viewAll('department');
                     break;
@@ -97,20 +96,25 @@ function toke() {
 //will move to new file once there is functionality.
 
 //view all - departments, roles, employees
-function viewAll(output) {
+const viewAll = (output) => {
         //departments
-    if (output === 'department') {
-        howl.query = `SELECT * FROM department`;
-        console.log('viewing all departments');
-        //roles
-    } else if (output === 'role') {
-        howl.query = `SELECT * FROM role`;
-        console.log('viewing all roles');
-        //employees
-    } else if (output === 'employee') {
-        howl.query = `SELECT * FROM employee`;
-        console.log('viewing all employees');
+    if (output.options === 'view departments') {
+       howl.query(`SELECT * FROM department`, (err,res) => {
+            if (err) throw err;
+            console.log('viewing all departments:');
+            console.table(res);
+       });
     };
+//         //roles
+    // } else if (output === 'role') {
+//         howl.query = `SELECT * FROM role`;
+//         console.log('viewing all roles');
+//         //employees
+//     } else if (output === 'employee') {
+//         howl.query = `SELECT * FROM employee`;
+//         console.log('viewing all employees');
+//     };
+    toke();
 };
 
 
