@@ -191,9 +191,6 @@ function viewRole() {
  };
 
 
-
-
-
 //add
 //department
 function addDept() {
@@ -364,19 +361,61 @@ function addEmp() {
 }; 
 
 
+//update employee role
+function updateRole() {
+    howl.query(`SELECT * FROM role;`, (err, res) => {
+        if (err) throw err;
+        let roles = res.map(role => ({name: role.title, value: role.id}));
+        howl.query(`SELECT * FROM employee;`, (err, res) => {
+            if (err) throw err;
+            let employees = res.map(employee => ({name: employee.first_name + ' ' + employee.last_name, value: employee.id}));
+            inquirer
+            .prompt([
+                 //employee
+                {
+                    type: 'list',
+                    name: 'employee',
+                    message: `Whose role needs to be updated?`,
+                    choices: employees,
+                },
+                //role
+                {
+                    type: 'list',
+                    name: 'role',
+                    message: `What is the employee's new role?`,
+                    choices: roles,
+                },
+            ])
+            .then((output) => {
+                howl.query(`UPDATE employee SET ? WHERE ?`,
+                [
+                    {
+                        role_id: output.role,
+                    },
+                    {
+                        id: output.employee,
+                    },
+
+                ],
+                (err, res) => {
+                    if (err) throw err;
+                    console.log(`
+        Successfully updated employee's role!
+                    
+    ================================================
+                    `);
+                toke(); 
+                })
+            })
+        });
+    });
+};
 
 
 
-// //update employee role
-// function updateRole() {
-//     let query =
-//         ``
-//     howl.query(query, (err, res) => {
-//         if (err) throw err;
-//         console.log('role updated!');
-//     toke();
-//     });
-// };
+
+
+
 
 
 // //view employee by manager
@@ -497,7 +536,7 @@ function deleteEmp() {
                 (err, res) => {
                     if (err) throw err;
                     console.log(`
-        Successfully deleted role from database!
+        Successfully deleted employee from database!
                         
     ================================================
                     `);
