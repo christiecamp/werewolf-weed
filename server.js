@@ -192,6 +192,8 @@ function viewRole() {
 
 
 
+
+
 //add
 //department
 function addDept() {
@@ -225,7 +227,7 @@ function addDept() {
     });
 };
 
-//add role
+//role
 function addRole() {
     let query =
         `SELECT * FROM department`;
@@ -288,8 +290,7 @@ function addRole() {
     });
 };
 
-
-//add employee
+//employee
 function addEmp() {
     //role
     howl.query(`SELECT * FROM role;`, (err,res) => {
@@ -401,6 +402,8 @@ function addEmp() {
 //     });
 // };
 
+
+
 //delete
 //department
 function deleteDept() {
@@ -470,17 +473,45 @@ function deleteRole() {
     });
 };
 
+//delete employee
+function deleteEmp() {
+    let query =
+        `SELECT * FROM employee ORDER BY id ASC`;
+    howl.query(query, (err,res) => {
+        if (err) throw err;
+    let employees = res.map(employee => ({name: employee.first_name + ' ' + employee.last_name, value: employee.id}));
+    inquirer
+        .prompt({
+            type: 'list',
+            name: 'employee',
+            message: `Which employee would you like to delete?`,
+            choices: employees,
+        })
+        .then((output) => {
+            let query =
+                `DELETE FROM employee WHERE ?`;
+            howl.query(query,
+                {
+                    id: output.employee,
+                },
+                (err, res) => {
+                    if (err) throw err;
+                    console.log(`
+        Successfully deleted role from database!
+                        
+    ================================================
+                    `);
+            toke();
+            });
+        });
+    });
+};
 
-// //delete employee
-// function deleteEmp() {
-//     let query =
-//         ``
-//     howl.query(query, (err,res) => {
-//         if (err) throw err;
-//         console.log('employee deleted!');
-//     toke();
-//     });
-// };
+
+
+
+
+
 
 
 // //view total utilized budget of a department
