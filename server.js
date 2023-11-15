@@ -43,8 +43,7 @@ function toke() {
     ================================================
     `);
     inquirer
-        .prompt(
-            {
+        .prompt({
             type: 'list',
             name: 'options',
             message: 'Select from the options below:',
@@ -159,7 +158,7 @@ function viewRole() {
      toke();
     });
  };
-
+//employees
  function viewEmp() {
     let query = 
     `SELECT employee.id, 
@@ -188,16 +187,37 @@ function viewRole() {
  };
 
 
-// //add department
-// function addDept(output) {
-//     let query =
-//         `INSERT INTO department (name) VALUES (?)`;
-//     howl.query(query, [output.addDept], (err,res) => {
-//         if (err) throw err;
-//         console.log('department added!');
-//     toke();
-//     });
-// };
+//add department
+function addDept() {
+    inquirer
+    .prompt({
+        type: 'input',
+        name: 'addDept',
+        message: 'What is the name for the department?',
+        validate: addDeptInput => {
+            if (addDeptInput) {
+                return true;
+            }
+            return console.log ('\n You must enter a department name');
+        },
+    })
+    .then((output) => {
+        let query = `INSERT INTO department SET ?`;
+        howl.query(query, 
+        {
+            name: output.addDept,
+        },
+        (err, res) => {
+            if (err) throw err;
+            console.log(`
+        Successfully added ${output.addDept} to departments!
+
+    ================================================
+            `);
+            toke(); 
+        });  
+    });
+};
 
 
 // //add role
@@ -260,16 +280,40 @@ function viewRole() {
 // };
 
 
-// //delete department
-// function deleteDept() {
-//     let query =
-//         ``
-//     howl.query(query, (err, res) => {
-//         if (err) throw err;
-//         console.log('department deleted!');
-//     toke();
-//     });
-// };
+//delete department
+function deleteDept() {
+    let query =
+        `SELECT * FROM department ORDER BY id ASC`;
+    howl.query(query, (err, res) => {
+        if (err) throw err;
+    let departments = res.map(department => ({name: department.name, value: department.id}));
+    inquirer
+        .prompt({
+            type: 'list',
+            name: 'department',
+            message: `Which department would you like to delete?`,
+            choices: departments
+        })
+        .then((output) => {
+            let query =
+                `DELETE FROM department WHERE ?`;
+            howl.query(query,
+                {
+                   id: output.department,
+                },
+                (err, res) => {
+                    if (err) throw err;
+                    console.log(`
+                Successfully deleted department!
+        
+    ================================================
+                    `);
+                    toke(); 
+            })
+
+        });
+    });
+};
 
 
 // //delete role
