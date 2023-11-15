@@ -1,6 +1,7 @@
 //import connection object
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
+const { printTable } = require('console-table-printer');
 // const input = require('./lib/input.js');
 
 //mysql connection
@@ -35,11 +36,11 @@ howl.connect( () => {
 function toke() {
     //message displayed with function
     console.log (`
-    ************************************************
-    **************** Welcome to ********************
-    ************** WEREWOLF WEED *******************
-    ************ Employee Database *****************
-    ************************************************
+    ================================================
+    ****************   Welcome to  *****************
+    **************   WEREWOLF WEED  ****************
+    ************   Employee Database  **************
+    ================================================
     `);
     inquirer
         .prompt(
@@ -123,31 +124,37 @@ function viewDept() {
    howl.query(`SELECT * FROM department`, (err, res) => {
         if (err) throw err;
         console.log(`
-    viewing all departments:
+viewing all departments:
 
-===============================
+    =============
         `);
-        console.table(res);
+        printTable(res);
         console.log(`
-   
-===============================
+    =============
         `);
     toke();
    });
 };
 //roles
 function viewRole() {
-    howl.query(`SELECT * FROM role`, (err, res) => {
+    let query =
+    `SELECT role.id,
+    role.title, 
+    role.salary, 
+    department.name AS department
+    FROM role
+    INNER JOIN department ON role.department_id = department.id
+    ORDER BY role.id ASC`;
+    howl.query(query, (err, res) => {
          if (err) throw err;
          console.log(`
-                            viewing all roles:
+                    viewing all roles:
  
-=============================================================================
-       `);
-         console.table(res);
-         console.log(`
-    
-=============================================================================
+    ================================================
+    `);
+        printTable(res);
+        console.log(`
+    ================================================
            `);
      toke();
     });
@@ -168,14 +175,13 @@ function viewRole() {
     howl.query(query, (err, res) => {
          if (err) throw err;
          console.log(`
-                                        viewing all employees:
- 
-==========================================================================================================
+                    viewing all employees:
+
+    ================================================
        `);
-         console.table(res);
+         printTable(res);
          console.log(`
-    
-==========================================================================================================
+    ================================================
            `);
      toke();
     });
