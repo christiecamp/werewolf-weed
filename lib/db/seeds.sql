@@ -9,11 +9,11 @@ VALUES
     ('marketing'), -- 5
     ('operations'); -- 6
 SELECT * FROM department;
-
 -- roles
 INSERT INTO role 
     (title, salary, department_id)
-VALUES('ceo', 220000, 1), -- 1
+VALUES
+    ('ceo', 220000, 1), -- 1
     ('cfo', 180000, 1), -- 2
     ('coo', 190000, 1), -- 3
     ('legal', 160000, 1), -- 4

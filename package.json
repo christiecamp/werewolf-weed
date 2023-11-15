@@ -2,7 +2,7 @@
   "name": "werewolf-weed",
   "version": "1.0.0",
   "description": "WEREWOLF WEED Employee Database",
-  "main": "server.js",
+  "main": "index.js",
   "dependencies": {
     "chalk": "^5.3.0",
     "dotenv": "^16.3.1",
@@ -20,11 +20,7 @@
     "type": "git",
     "url": "https://github.com/christiecamp/werewolf-weed.git"
   },
-  "keywords": [
-    "node.js",
-    "inquirer",
-    "mysql"
-  ],
+  "keywords": [],
   "author": {
     "name": "Christine Campbell",
     "email": "christiecamphoto@gmail.com",

@@ -1,18 +1,18 @@
 //import connection object
-// const howl = require('./lib/config/connection');
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
-const input = require('./lib/input.js');
-// const output = require('./working-output.js');
+// const input = require('./lib/input.js');
 
 //mysql connection
-const howl = mysql.createConnection({
+const howl = mysql.createConnection(
+    {
     host: '127.0.0.1', //local host
-    port: 3007,
+    port: 3306,
     user: 'root',
-    password: '', 
-    database: 'werewolf_db'
-});
+    password: '',
+    database: 'werewolf_db',
+    },
+);
 
 //contect to database
 howl.connect( () => {
@@ -42,11 +42,32 @@ function toke() {
     *******************
     `);
     inquirer
-        .prompt(input) //user input (change to inhale)
+        .prompt(
+            {
+            type: 'list',
+            name: 'options',
+            message: 'Select from the options below:',
+            choices: [
+                'view departments',
+                'view roles',
+                'view employees',
+                'add department',
+                'add role',
+                'add employee',
+                'update employee role',
+                'view employee by manager',
+                'update employee manager',
+                'delete department',
+                'delete role',
+                'delete employee',
+                'view total utilized budget by department',
+                'quit',
+                ],
+        }) //user input
         .then((output) => { //output
             switch (output.options) {
-                case 'view departments':
-                    viewAll('department');
+                case "view departments":
+                    viewDept();
                     break;
                 case 'view roles':
                     viewRole();
@@ -84,27 +105,40 @@ function toke() {
                 case 'view total utilized budget by department':
                     viewBdgt();
                     break;
-                default:
+                case 'quit':
                     howl.end();
-            };
+                    return;
+                default:
+                    break;
+            }
         })
         .catch(err => {
             console.log(err);
         });
-};
-
+}
 //will move to new file once there is functionality.
 
 //view all 
-function viewAll(output) {
-    //departments
-    if (output === 'department') {
-        howl.query(`SELECT * FROM department`, (err, res) => {
-            if (err) throw err;
-            console.log('viewing all departments:');
-            console.table(res);
-        })
-    }
+
+function viewDept() {
+   howl.query(`SELECT * FROM department`, function (err, res) {
+        console.table(res);
+        toke();
+   });
+};
+
+// function viewAll(output) {
+//     //departments
+//     if (output === 'department') {
+//         howl.query = `SELECT * FROM department`, 
+
+//         console.log(`
+//         viewing all departments:
+//         =======================================
+//         `);
+//         }
+//     toke();
+// };
     // //roles
     // } else if (output === 'role') {
     //     howl.query(`SELECT * FROM role`, (err, res) => {
@@ -119,9 +153,6 @@ function viewAll(output) {
     //         console.log('viewing all employees');
     //         console.table(res);
     //     })
-toke();
-};  
-
 
 
 

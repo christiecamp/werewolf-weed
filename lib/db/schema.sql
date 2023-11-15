@@ -7,10 +7,10 @@ CREATE DATABASE werewolf_db;
 USE werewolf_db;
 -- create tables within database --
 
--- department table --
+-- tables --
 CREATE TABLE department (
      -- Creates a numeric column called "id" which will automatically increment its default value as we create new rows --
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     -- Makes a string column called "name" which cannot contain null --
     name VARCHAR(30) NOT NULL
 );
