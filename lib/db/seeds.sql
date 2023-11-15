@@ -9,6 +9,7 @@ VALUES
     ('marketing'), -- 5
     ('operations'); -- 6
 SELECT * FROM department;
+
 -- roles
 INSERT INTO role 
     (title, salary, department_id)

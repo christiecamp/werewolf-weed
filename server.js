@@ -7,7 +7,7 @@ const inquirer = require('inquirer');
 const howl = mysql.createConnection(
     {
     host: '127.0.0.1', //local host
-    port: 3306,
+    port: 3306, //port created with mysql download.
     user: 'root',
     password: '',
     database: 'werewolf_db',
@@ -35,11 +35,11 @@ howl.connect( () => {
 function toke() {
     //message displayed with function
     console.log (`
-    *******************
-    *** Welcome to ****
-    ** WEREWOLF WEED **
-    *Employee Database*
-    *******************
+    ************************************************
+    **************** Welcome to ********************
+    ************** WEREWOLF WEED *******************
+    ************ Employee Database *****************
+    ************************************************
     `);
     inquirer
         .prompt(
@@ -115,46 +115,71 @@ function toke() {
         .catch(err => {
             console.log(err);
         });
-}
-//will move to new file once there is functionality.
-
-//view all 
-
-function viewDept() {
-   howl.query(`SELECT * FROM department`, function (err, res) {
-        console.table(res);
-        toke();
-   });
 };
 
-// function viewAll(output) {
-//     //departments
-//     if (output === 'department') {
-//         howl.query = `SELECT * FROM department`, 
+//view all 
+//department
+function viewDept() {
+   howl.query(`SELECT * FROM department`, (err, res) => {
+        if (err) throw err;
+        console.log(`
+    viewing all departments:
 
-//         console.log(`
-//         viewing all departments:
-//         =======================================
-//         `);
-//         }
-//     toke();
-// };
-    // //roles
-    // } else if (output === 'role') {
-    //     howl.query(`SELECT * FROM role`, (err, res) => {
-    //         if (err) throw err;
-    //         console.log('viewing all roles');
-    //         console.table(res);
-    //     })
-    // //employees
-    // } else if (output === 'employee') {
-    //     howl.query(`SELECT * FROM employee`,(err, res) => {
-    //         if (err) throw err;
-    //         console.log('viewing all employees');
-    //         console.table(res);
-    //     })
+===============================
+        `);
+        console.table(res);
+        console.log(`
+   
+===============================
+        `);
+    toke();
+   });
+};
+//roles
+function viewRole() {
+    howl.query(`SELECT * FROM role`, (err, res) => {
+         if (err) throw err;
+         console.log(`
+                            viewing all roles:
+ 
+=============================================================================
+       `);
+         console.table(res);
+         console.log(`
+    
+=============================================================================
+           `);
+     toke();
+    });
+ };
 
-
+ function viewEmp() {
+    let query = 
+    `SELECT employee.id, 
+    employee.first_name, 
+    employee.last_name, 
+    role.title, 
+    department.name AS 'department',
+    role.salary 
+    FROM employee, role, department
+    WHERE department.id = role.department_id 
+    AND role.id = employee.role_id 
+    ORDER by employee.id ASC`;
+    howl.query(query, (err, res) => {
+         if (err) throw err;
+         console.log(`
+                                        viewing all employees:
+ 
+==========================================================================================================
+       `);
+         console.table(res);
+         console.log(`
+    
+==========================================================================================================
+           `);
+     toke();
+    });
+ };
 
 
 // //add department
@@ -275,9 +300,18 @@ function viewDept() {
 //     });
 // };
 
-//end
-// function end() {
-//     console.log(`
+// end
+function end() {
+    console.log(`
 
-
-// `)};
+        .===. (
+        |   |  )
+        |   | (
+        |   | )
+        |   \*/
+      ,'    //.
+     :~~~~~//~~;      
+      `.  // .'
+    ww`-------'
+    
+`)};
