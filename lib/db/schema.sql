@@ -12,7 +12,8 @@ CREATE TABLE department (
      -- Creates a numeric column called "id" which will automatically increment its default value as we create new rows --
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     -- Makes a string column called "name" which cannot contain null --
-    name VARCHAR(30) NOT NULL
+    name VARCHAR(30) NOT NULL,
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- role table --

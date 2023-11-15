@@ -187,7 +187,12 @@ function viewRole() {
  };
 
 
-//add department
+
+
+
+
+//add
+//department
 function addDept() {
     inquirer
     .prompt({
@@ -210,26 +215,88 @@ function addDept() {
         (err, res) => {
             if (err) throw err;
             console.log(`
-        Successfully added ${output.addDept} to departments!
+        Successfully added ${output.addDept} to database!
 
     ================================================
             `);
-            toke(); 
+         toke(); 
         });  
     });
 };
 
 
-// //add role
-// function addRole() {
-//     let query =
-//         ``
-//     howl.query(query, (err,res) => {
-//         if (err) throw err;
-//         console.log('role added!');
-//     toke();
-//     });
-// };
+
+
+
+
+//add role
+function addRole() {
+    let query =
+        `SELECT * FROM department`;
+    howl.query(query, (err, res) => {
+        if (err) throw err;
+        let departments = res.map(department => ({name: department.name, value: department.id}));
+        inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'title',
+                message: `What is the role's name?`,
+            },
+            // add salary to role
+            {
+                type: 'input',
+                name: 'salary',
+                message: `What is the salary for this role?`,
+            },
+        //add department to role
+            {
+                type: 'input',
+                name: 'id',
+                message: `Enter the department ID for this role:`,
+                choices: departments
+            },
+        ])
+        .then((output) => {
+            let query = 
+                `INSERT INTO role SET ?`;
+            howl.query(query, 
+                {
+                    title: output.title,
+                    salary: output.salary,
+                    department_id: output.id,
+                },
+                (err,res) => {
+                    if (err) throw err;
+                    console.log(`
+    Successfully added ${output.title} to database!
+        
+    ================================================
+                    `);
+             toke(); 
+            });
+        });
+    });
+};
+
+
+
+
+
+// let query =
+// ``
+// howl.query(query, (err,res) => {
+// if (err) throw err;
+// console.log('role added!');
+// toke();
+// });
+
+
+
+
+
+
+
 
 
 // //add employee
