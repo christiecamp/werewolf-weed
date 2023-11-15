@@ -117,6 +117,8 @@ function toke() {
         });
 };
 
+
+
 //view all 
 //department
 function viewDept() {
@@ -134,6 +136,7 @@ viewing all departments:
     toke();
    });
 };
+
 //roles
 function viewRole() {
     let query =
@@ -158,6 +161,7 @@ function viewRole() {
      toke();
     });
  };
+
 //employees
  function viewEmp() {
     let query = 
@@ -188,16 +192,13 @@ function viewRole() {
 
 
 
-
-
-
 //add
 //department
 function addDept() {
     inquirer
     .prompt({
         type: 'input',
-        name: 'addDept',
+        name: 'department',
         message: 'What is the name for the department?',
         validate: addDeptInput => {
             if (addDeptInput) {
@@ -210,7 +211,7 @@ function addDept() {
         let query = `INSERT INTO department SET ?`;
         howl.query(query, 
         {
-            name: output.addDept,
+            name: output.department,
         },
         (err, res) => {
             if (err) throw err;
@@ -288,20 +289,81 @@ function addRole() {
 };
 
 
+//add employee
+function addEmp() {
+    //role
+    howl.query(`SELECT * FROM role;`, (err,res) => {
+        if (err) throw err;
+        let roles = res.map(role => ({name: role.title, value: role.id}));
+        //manager
+        howl.query(`SELECT * FROM employee;`, (err, res) => {
+            if (err) throw err;
+            let managers = res.map(employee => ({name: employee.first_name + ' ' + employee.last_name, value: employee.id}));
+            inquirer
+            .prompt([
+            //first name
+                {
+                    type: 'input',
+                    name: 'firstName',
+                    message: `Enter in the employee's first name:`,
+                    validate: addFirstName => {
+                        if (addFirstName) {
+                            return true;
+                        }
+                        return console.log ('\n You must enter a first name for the role');
+                    },
+                },
+                //last name
+                {
+                    type: 'input',
+                    name: 'lastName',
+                    message: `Enter in the employee's last name:`,
+                    validate: addLastName => {
+                        if (addLastName) {
+                            return true;
+                        }
+                        return console.log ('\n You must enter a last name for the role');
+                    },
+                },
+                //employee role
+                { 
+                    type: 'list',
+                    name: 'role',
+                    message: `What is the employee's role?`,
+                    choices: roles,
+                },
+                //employee manager
+                {
+                    type: 'list',
+                    name: 'manager',
+                    message: `Who in the employee's manager?`,
+                    choices: managers,
+                },
+            ])
+            .then((output) => {
+            howl.query(`INSERT INTO employee SET ?`,
+                {
+                    first_name: output.firstName,
+                    last_name: output.lastName,
+                    role_id: output.role,
+                    manager_id: output.manager,
+                },
+                (err, res) => {
+                    if (err) throw err;
+                    console.log(`
+        Successfully added ${output.firstName} ${output.lastName} to database!
+        
+    ================================================
+                        `);
+                toke(); 
+                });
+            });
+        });
+    });
+}; 
 
 
 
-
-// //add employee
-// function addEmp() {
-//     let query =
-//         ``
-//     howl.query(query, (err, res) => {
-//         if (err) throw err;
-//         console.log('employee added!');
-//     toke();
-//     });
-// };
 
 
 // //update employee role
@@ -339,8 +401,8 @@ function addRole() {
 //     });
 // };
 
-
-//delete department
+//delete
+//department
 function deleteDept() {
     let query =
         `SELECT * FROM department ORDER BY id ASC`;
@@ -374,8 +436,7 @@ function deleteDept() {
     });
 };
 
-
-//delete role
+//role
 function deleteRole() {
     let query =
         `SELECT * FROM role ORDER BY id ASC`;
