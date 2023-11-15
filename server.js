@@ -218,16 +218,11 @@ function addDept() {
         Successfully added ${output.addDept} to database!
 
     ================================================
-            `);
-         toke(); 
+                `);
+            toke(); 
         });  
     });
 };
-
-
-
-
-
 
 //add role
 function addRole() {
@@ -238,23 +233,36 @@ function addRole() {
         let departments = res.map(department => ({name: department.name, value: department.id}));
         inquirer
         .prompt([
+            //role title
             {
                 type: 'input',
                 name: 'title',
                 message: `What is the role's name?`,
+                validate: addRoleTitle => {
+                    if (addRoleTitle) {
+                        return true;
+                    }
+                    return console.log ('\n You must enter a role name');
+                },
             },
-            // add salary to role
+            //add salary
             {
                 type: 'input',
                 name: 'salary',
                 message: `What is the salary for this role?`,
+                validate: addRoleSalary => {
+                    if (addRoleSalary) {
+                        return true;
+                    }
+                    return console.log ('\n You must enter a salary for the role');
+                },
             },
-        //add department to role
+            //choose department
             {
-                type: 'input',
+                type: 'list',
                 name: 'id',
-                message: `Enter the department ID for this role:`,
-                choices: departments
+                message: `Choose the department for this role:`,
+                choices: departments,
             },
         ])
         .then((output) => {
@@ -269,7 +277,7 @@ function addRole() {
                 (err,res) => {
                     if (err) throw err;
                     console.log(`
-    Successfully added ${output.title} to database!
+        Successfully added ${output.title} to database!
         
     ================================================
                     `);
@@ -278,21 +286,6 @@ function addRole() {
         });
     });
 };
-
-
-
-
-
-// let query =
-// ``
-// howl.query(query, (err,res) => {
-// if (err) throw err;
-// console.log('role added!');
-// toke();
-// });
-
-
-
 
 
 
@@ -359,7 +352,7 @@ function deleteDept() {
             type: 'list',
             name: 'department',
             message: `Which department would you like to delete?`,
-            choices: departments
+            choices: departments,
         })
         .then((output) => {
             let query =
@@ -371,28 +364,50 @@ function deleteDept() {
                 (err, res) => {
                     if (err) throw err;
                     console.log(`
-                Successfully deleted department!
+        Successfully deleted department from database!
         
     ================================================
                     `);
-                    toke(); 
-            })
-
+            toke(); 
+            });
         });
     });
 };
 
 
-// //delete role
-// function deleteRole() {
-//     let query =
-//         ``
-//     howl.query(query, (err, res) => {
-//         if (err) throw err;
-//         console.log('role deleted!');
-//     toke();
-//     });
-// };
+//delete role
+function deleteRole() {
+    let query =
+        `SELECT * FROM role ORDER BY id ASC`;
+    howl.query(query, (err, res) => {
+        if (err) throw err;
+    let roles = res.map(role => ({name: role.title, value: role.id}));
+    inquirer
+        .prompt({
+            type: 'list',
+            name: 'role',
+            message: `Which role would you like to delete?`,
+            choices: roles,
+        })
+        .then((output) => {
+            let query =
+                `DELETE FROM role WHERE ?`;
+            howl.query(query,
+                {
+                    id: output.role,
+                },
+                (err, res) => {
+                    if (err) throw err;
+                    console.log(`
+        Successfully deleted role from database!
+            
+    ================================================
+                    `);
+            toke();
+            });
+        });
+    });
+};
 
 
 // //delete employee
