@@ -15,8 +15,6 @@
 [![Canva Badge](https://img.shields.io/badge/canva-green.svg?&logo=Canva&logoColor=white)](https://canva.com)
 
 
-**UNDER CONSTRUCTION - COME BACK SOON!**
-
 ### ![table-of-contents](./swear-wolf/branding/toc.png)
 
   - [OVERVIEW](#overview)
@@ -142,9 +140,10 @@ Here's a list of technologies used:
 
 [![Github Badge](https://img.shields.io/badge/christiecamp-green.svg?&logo=Github&logoColor=white)](https://github.com/christiecamp/bear-taker)
 
-![Gmail Badge](https://img.shields.io/badge/email-green.svg?&logo=Gmail&logoColor=white)
+<a href="mailto:christiecamphoto@gmail.com">
+<img src="https://img.shields.io/badge/gmail-green.svg?&logo=Gmail&logoColor=white" />
+</a>
 
-<!-- <a href = "mailto:christiecamphoto@gmail.com?subject = Feedback&body = Message"> <3</a> -->
 
 <p align="center">
 <a href="https://www.christiecamp.com"><img height= 250px src ="./swear-wolf/branding/footer.png"></a>
