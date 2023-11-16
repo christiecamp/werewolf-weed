@@ -1,19 +1,8 @@
 //import connection object
-const mysql = require('mysql2');
+const howl = require('./lib/config/connection');
 const inquirer = require('inquirer');
 const { printTable } = require('console-table-printer');
 // const input = require('./lib/input.js');
-
-//mysql connection
-const howl = mysql.createConnection(
-    {
-    host: '127.0.0.1', //local host
-    port: 3306, //port created with mysql
-    user: 'root',
-    password: '',
-    database: 'werewolf_db',
-    },
-);
 
 //contect to database
 howl.connect( () => {
