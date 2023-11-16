@@ -551,7 +551,7 @@ function deleteEmp() {
 //view total utilized budget of a department
 function viewBdgt() {
     let query = 
-        `SELECT * FROM department ORDER BY id ASC`;
+        `SELECT * FROM department ORDER BY id ASC;`;
     howl.query(query, (err, res) => {
         if (err) throw err;
     let departments = res.map(department => ({name: department.name, value: department.id}));
@@ -564,7 +564,11 @@ function viewBdgt() {
         })
         .then((output) => {
             let sql = 
-                `SELECT id, SUM(role.salary) AS total_salary FROM role WHERE ?`;
+                `SELECT department_id AS id, 
+                department.name AS department,
+                SUM(salary) AS budget
+                FROM role
+                INNER JOIN department ON role.department_id = department.id GROUP BY role.department_id`;
             howl.query(sql,
                 {
                     id: output.budget,
@@ -572,7 +576,7 @@ function viewBdgt() {
                 (err, res) => {
                     if (err) throw err;
                     console.log(`
-                    viewing budget for ${output.budget}:
+                    viewing total utilized budget per department:
  
     ================================================
                     `);

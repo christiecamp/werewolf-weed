@@ -14,6 +14,7 @@ CREATE TABLE department (
     -- Makes a string column called "name" which cannot contain null --
     name VARCHAR(30) NOT NULL,
     ON DELETE CASCADE ON UPDATE CASCADE
+    -- ALTER TABLE department AUTO_INCREMENT = 7
 );
 
 -- role table --
@@ -25,7 +26,8 @@ CREATE TABLE role (
     department_id INT NOT NULL,
     FOREIGN KEY (department_id)
         REFERENCES department(id)
-        ON DELETE CASCADE ON UPDATE CASCADE
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE
 );
 
 -- employee table --
@@ -40,6 +42,6 @@ CREATE TABLE employee (
         ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (manager_id)
         REFERENCES employee(id)
-        ON DELETE SET NULL
+        ON DELETE SET NULL 
         ON UPDATE CASCADE
 );
