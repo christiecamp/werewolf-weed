@@ -106,17 +106,16 @@ function toke() {
                     viewBdgt();
                     break;
                 case 'quit':
-                    howl.end();
+                    end();
                     return;
                 default:
                     break;
-            }
+            };
         })
         .catch(err => {
             console.log(err);
         });
 };
-
 
 
 //view all 
@@ -166,10 +165,10 @@ function viewRole() {
  function viewEmp() {
     let query = 
     `SELECT employee.id, 
-    employee.first_name, 
-    employee.last_name, 
+    employee.first_name AS 'first name', 
+    employee.last_name AS 'last name', 
     role.title, 
-    department.name AS 'department',
+    department.name AS department,
     role.salary 
     FROM employee, role, department
     WHERE department.id = role.department_id 
@@ -412,22 +411,61 @@ function updateRole() {
 };
 
 
+//view employee by manager
+function viewMng() {
+    let query =
+        `SELECT employee.id,
+        employee.first_name,
+        employee.last_name
+        FROM employee
+        ORDER BY employee.id ASC`; 
+    howl.query(query, (err, res) => {
+        if (err) throw err;
+        let managers = res.map(employee => ({name: employee.first_name + ' ' + employee.last_name, value: employee.id}));
+        inquirer
+            .prompt({
+                type: 'list',
+                name: 'manager',
+                message: `Which manager's employee list would you like to view?`,
+                choices: managers,
+            })
+            .then((output) => {
+                let sql =
+                    `SELECT employee.id AS id,
+                    employee.first_name AS 'first name',
+                    employee.last_name AS 'last name',
+                    role.title,
+                    department.name AS 'department',
+                    role.salary,
+                    CONCAT(manager.first_name, ' ', manager.last_name) manager 
+                    FROM employee
+                    manager RIGHT JOIN employee ON employee.manager_id = manager.id 
+                    JOIN role ON employee.role_id = role.id 
+                    JOIN department ON department.id = role.department_id 
+                    WHERE employee.manager_id = ${output.manager} 
+                    ORDER BY employee.id ASC`
+                howl.query(sql, (err, res) => {
+                    if (err) throw err;
+                    console.log(`
+            viewing employee's managed by ${output.manager}:
+ 
+    ================================================
+                    `);
+                    printTable(res);
+                    console.log(`
+    ================================================
+                    `);
+            toke();
+            });
+        });
+    });
+};
 
 
 
 
 
 
-// //view employee by manager
-// function viewMng() {
-//     let query =
-//         ``
-//     howl.query(query, (err, res) => {
-//         if (err) throw err;
-//         console.log('viewing employee by manager');
-//     toke();
-//     });
-// };
 
 
 // //update employee manager
@@ -558,13 +596,12 @@ function viewBdgt() {
         .prompt({
             type: 'list',
             name: 'budget',
-            message: `Which department would you like to view it's total utilized budget?`,
+            message: `Which department's total utilized budget would you like to view?`,
             choices: departments,
         })
         .then((output) => {
             let sql = 
-                `SELECT department_id AS department,
-                department.name
+                `SELECT department_id AS id,
                 SUM(salary) AS budget
                 FROM role
                 WHERE ?`;
@@ -575,7 +612,7 @@ function viewBdgt() {
                 (err, res) => {
                     if (err) throw err;
                     console.log(`
-                    viewing total utilized budget per department:
+             Successfully viewing ${output.budget}'s total utilized budget!
  
     ================================================
                     `);
@@ -589,17 +626,12 @@ function viewBdgt() {
     });
 };
 
-//view total budget
-//view by department
-
-
-
-
 
 // end
 function end() {
     console.log(`
 
+    get blazed!
         .===. (
         |   |  )
         |   | (
@@ -607,7 +639,9 @@ function end() {
         |   \*/
       ,'    //.
      :~~~~~//~~;      
-      `.  // .'
-    ww`-------'
-    
-`)};
+      '.  // .'
+       ------- 
+                                                   
+                                                    christiecamp
+    `);
+};
