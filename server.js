@@ -463,21 +463,49 @@ function viewMng() {
 
 
 
-
-
-
-
-
-// //update employee manager
-// function updateMng() {
-//     let query =
-//         ``
-//     howl.query(query, (err, res) => {
-//         if (err) throw err;
-//         console.log('employee manager updated!');
-//     toke();
-//     });
-// };
+//update employee manager
+function updateMng() {
+    howl.query(`SELECT * FROM employee`, (err, res) => {
+        if (err) throw err;
+    let employees = res.map(employee => ({name: employee.first_name + ' ' + employee.last_name, value: employee.id}));
+    inquirer
+        .prompt([
+            {
+                type: 'list',
+                name: 'employee',
+                message: `Which employee needs an updated manager?`,
+                choices: employees,
+            },
+            //manager
+            {
+                type: 'list',
+                name: 'manager',
+                message: `Choose a new manager for the employee:`,
+                choices: employees,
+            },
+        ])
+        .then((output) => {
+            howl.query(`UPDATE employee SET ? WHERE?`,
+            [
+                {
+                    manager_id: output.manager,
+                },
+                {
+                    id: output.employee,
+                },
+            ],
+            (err, res) => {
+                if (err) throw err;
+                console.log(`
+        Successfully updated employee's manager!
+        
+    ================================================
+                    `);
+            toke();
+            });
+        });
+    });
+};
 
 
 
