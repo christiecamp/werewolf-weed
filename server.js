@@ -8,7 +8,7 @@ const { printTable } = require('console-table-printer');
 const howl = mysql.createConnection(
     {
     host: '127.0.0.1', //local host
-    port: 3306, //port created with mysql download.
+    port: 3306, //port created with mysql
     user: 'root',
     password: '',
     database: 'werewolf_db',
@@ -548,20 +548,48 @@ function deleteEmp() {
 
 
 
+//view total utilized budget of a department
+function viewBdgt() {
+    let query = 
+        `SELECT * FROM department ORDER BY id ASC`;
+    howl.query(query, (err, res) => {
+        if (err) throw err;
+    let departments = res.map(department => ({name: department.name, value: department.id}));
+    inquirer
+        .prompt({
+            type: 'list',
+            name: 'budget',
+            message: `Which department would you like to view it's total utilized budget?`,
+            choices: departments,
+        })
+        .then((output) => {
+            let sql = 
+                `SELECT id, SUM(role.salary) AS total_salary FROM role WHERE ?`;
+            howl.query(sql,
+                {
+                    id: output.budget,
+                },
+                (err, res) => {
+                    if (err) throw err;
+                    console.log(`
+                    viewing budget for ${output.budget}:
+ 
+    ================================================
+                    `);
+                    printTable(res);
+                    console.log(`
+    ================================================
+                    `);
+            toke();
+            });
+        });
+    });
+};
 
 
 
 
 
-// //view total utilized budget of a department
-// function viewBdgt() {
-//     let query = 
-//         ``
-//     howl.query(query, (err, res) => {
-//         if (err) throw err;
-//         console.log('budget by department');
-//     });
-// };
 
 // end
 function end() {
