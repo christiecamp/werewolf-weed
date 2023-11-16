@@ -65,31 +65,39 @@ git clone https://github.com/christiecamp/werewolf-weed.git
 *Navigate to the command line and input:*
 
 ```javascript
-npm i :: inquirer@8.2.4, --save mysql2, dotenv --save, --save sequelize, -g nodemon --save-dev, console-table-printer,
+npm i :: inquirer@8.2.4, --save mysql2, dotenv --save, --save sequelize, -g nodemon --save-dev, console-table-printer
 ```
 ```javascript
-
+mysql -u root -p
+```
+```mysql
+SOURCE lib/db/schema.sql;
+SOURCE lib/db/seeds.sql;
+quit
 ```
 ```javascript
-
-```
-```javascript
-
-```
-```javascript
-
+node server
 ```
 
 ### ![usage](./swear-wolf/branding/3.png)
 
 **INSTRUCTIONS:**
 
-1. one
+1. Open the Integrated Terminal and input - node server.
 
-2. two
-
-3. three
-
+2. Interact with WEREWOLF WEED database with the below prompts:
+      * view departments
+      * view roles
+      * view employees
+      * add department
+      * add role
+      * update employee role
+      * view employee by manager
+      * update employee manager
+      * delete department
+      * delete role
+      * delete employee
+      * view total utilized budget by department
 
 
 ### ![screenshot](./swear-wolf/branding/12.png)
@@ -99,7 +107,7 @@ npm i :: inquirer@8.2.4, --save mysql2, dotenv --save, --save sequelize, -g node
 <!-- ![demo](./bear-necessities/bear-taker.gif) -->
 
 ### ![testing](./swear-wolf/branding/8.png)
-<!-- ![testing](./bear-necessities/insomniass.png) -->
+![testing](./swear-wolf/demos/testing.png)
 
 ### ![sources](./swear-wolf/branding/4.png)
 
@@ -115,9 +123,11 @@ Here's a list of technologies used:
 
 5. [Sequelize](https://sequelize.org/) - a Node.js based `Object Relational Mapper` that makes it easy to work with **MySQL databases**. An *Object Relational Mapper* performs functions like handling database records by representing the data as objects.
 
-5. [Nodemon](https://www.npmjs.com/package/nodemon) - a Node.js tool that helps develop applications by automatically restarting the node application when file changes in the directory are detected.
+6. [Nodemon](https://www.npmjs.com/package/nodemon) - a Node.js tool that helps develop applications by automatically restarting the node application when file changes in the directory are detected.
 
-5. [Chalk](https://www.npmjs.com/package/chalk) - a Node.js tool that helps develop applications by automatically restarting the node application when file changes in the directory are detected.
+7. [Chalk](https://www.npmjs.com/package/chalk) - a Node.js tool that helps develop applications by automatically restarting the node application when file changes in the directory are detected.
+
+8. [Console Table Printer](https://www.npmjs.com/package/console-table-printer) - a Node.js tool that prints simple tables.
 
 ### ![license](./swear-wolf/branding/5.png)
 
@@ -126,8 +136,6 @@ Here's a list of technologies used:
 ### ![links](./swear-wolf/branding/6.png)
 
 [GitHub Repository](https://github.com/christiecamp/werewolf-weed)
-
-[Deployed Application]()
 
 [Video Demo]()
 
