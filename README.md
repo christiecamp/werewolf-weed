@@ -103,7 +103,7 @@ node server
 ![screenshot](./swear-wolf/demos/ss.png)
 
 ### ![demo](./swear-wolf/branding/13.png)
-<!-- ![demo](./bear-necessities/bear-taker.gif) -->
+![demo](./swear-wolf/demos/demo.gif)
 
 ### ![testing](./swear-wolf/branding/8.png)
 ![testing](./swear-wolf/demos/testing.png)
@@ -136,7 +136,7 @@ Here's a list of technologies used:
 
 [GitHub Repository](https://github.com/christiecamp/werewolf-weed)
 
-[Video Demo]()
+[Video Demo](https://drive.google.com/file/d/1-PaAt5Gt47rRBaM1NkJ70OeOQYEGAyDj/view?usp=sharing)
 
 ### ![connect](./swear-wolf/branding/7.png)
 

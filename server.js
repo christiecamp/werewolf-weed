@@ -203,7 +203,7 @@ function addDept() {
         (err, res) => {
             if (err) throw err;
             console.log(`
-        Successfully added ${output.addDept} to database!
+        Successfully added ${output.department} to database!
 
     ================================================
                 `);
