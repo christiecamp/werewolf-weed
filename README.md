@@ -12,7 +12,6 @@
 [![Nodemon Badge](https://img.shields.io/badge/nodemon-lightgrey.svg?&logo=Nodemon&logoColor=white)](https://www.npmjs.com/package/nodemon)
 
 [![Chalk Badge](https://img.shields.io/badge/chalk-yellowgreen.svg?&logo=Chalk&logoColor=white)](https://www.npmjs.com/package/chalk)
-[![Figlet Badge](https://img.shields.io/badge/figlet-yellowgreen.svg?&logo=Figlet&logoColor=white)](https://www.npmjs.com/package/chalk)
 [![Canva Badge](https://img.shields.io/badge/canva-green.svg?&logo=Canva&logoColor=white)](https://canva.com)
 
 
@@ -101,7 +100,7 @@ node server
 
 
 ### ![screenshot](./swear-wolf/branding/12.png)
-<!-- ![screenshot](./bear-necessities//ss.png) -->
+![screenshot](./swear-wolf/demos/ss.png)
 
 ### ![demo](./swear-wolf/branding/13.png)
 <!-- ![demo](./bear-necessities/bear-taker.gif) -->
