@@ -629,7 +629,7 @@ function viewBdgt() {
                 (err, res) => {
                     if (err) throw err;
                     console.log(`
-             Successfully viewing ${output.budget}'s total utilized budget!
+        Successfully viewing ${output.budget}'s total utilized budget!
  
     ================================================
                     `);

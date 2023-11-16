@@ -84,7 +84,7 @@ node server
 
 1. Open the Integrated Terminal and input - node server.
 
-2. Interact with WEREWOLF WEED database with the below prompts:
+2. Interact with WEREWOLF WEED's database by selecting the below prompts:
       * view departments
       * view roles
       * view employees
