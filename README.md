@@ -14,6 +14,8 @@
 [![Chalk Badge](https://img.shields.io/badge/chalk-yellowgreen.svg?&logo=Chalk&logoColor=white)](https://www.npmjs.com/package/chalk)
 [![Canva Badge](https://img.shields.io/badge/canva-green.svg?&logo=Canva&logoColor=white)](https://canva.com)
 
+[![View Badge](https://img.shields.io/badge/view-darkmode-black.svg?&logo=Github&logoColor=white)](https://canva.com/) 
+
 
 ### ![table-of-contents](./swear-wolf/branding/toc.png)
 
@@ -57,7 +59,7 @@ The application is invoked using the following commands:
 git clone https://github.com/christiecamp/werewolf-weed.git
 ```
 
-**Update *connection.js* with your information**
+**Update *.env* with your information**
 
 *Navigate to the command line and input:*
 
