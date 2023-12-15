@@ -140,7 +140,7 @@ Here's a list of technologies used:
 
 ### ![connect](./swear-wolf/branding/7.png)
 
-[![Github Badge](https://img.shields.io/badge/christiecamp-green.svg?&logo=Github&logoColor=white)](https://github.com/christiecamp/bear-taker)
+[![Github Badge](https://img.shields.io/badge/christiecamp-green.svg?&logo=Github&logoColor=white)](https://github.com/christiecamp/werewolf-weed)
 
 <a href="mailto:christiecamphoto@gmail.com">
 <img src="https://img.shields.io/badge/gmail-green.svg?&logo=Gmail&logoColor=white" />
