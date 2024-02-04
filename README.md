@@ -55,7 +55,7 @@ The application is invoked using the following commands:
 
 *Clone the repository in your local development enviorment.*
 
-```
+```javascript
 git clone https://github.com/christiecamp/werewolf-weed.git
 ```
 
